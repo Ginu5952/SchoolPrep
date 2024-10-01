@@ -13,7 +13,10 @@ DEFAULT_APP = [
 ]
 CREATED_APP = [
     "apps.core.apps.CoreConfig",
-]  # custom apps goe here
+    "apps.Parent.apps.ParentConfig",
+    "apps.Student.apps.StudentConfig",
+    "apps.Teacher.apps.TeacherConfig",
+]  
 
 THIRD_PARTY_APP = [
     
