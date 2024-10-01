@@ -1,4 +1,5 @@
 from pathlib import Path
+import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
@@ -14,7 +15,11 @@ CREATED_APP = [
     "apps.core.apps.CoreConfig",
 ]  # custom apps goe here
 
-THIRD_PARTY_APP = []  # third party apps goe here
+THIRD_PARTY_APP = [
+    
+        'rest_framework',  
+        'rest_framework.authtoken',
+    ]  
 
 INSTALLED_APPS = [*DEFAULT_APP, *CREATED_APP, *THIRD_PARTY_APP]
 
@@ -74,4 +79,35 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 
+#STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+MEDIA_URL = "media/"
+MEDIA_ROOT = BASE_DIR / 'media'
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES':(
+        
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES':(
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+}
+
+
+SITE_URL = 'http://127.0.0.1:8000'
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'ginu.george@dci-student.org'
+EMAIL_HOST_PASSWORD = 'aeng kgju dxaz rxrj'

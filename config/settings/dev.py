@@ -1,38 +1,23 @@
-import environ
-
 from .base import *
+import environs
 
-env = environ.Env(DEBUG=(bool, True))
-environ.Env.read_env(str(BASE_DIR / ".env"))
+env = environs.Env()
 
-SECRET_KEY = env.str("SECRET_KEY")
-DEBUG = env.bool("DEBUG")
+env.read_env(str(BASE_DIR / '.env'))
 
-ALLOWED_HOSTS = ["*"]
+SECRET_KEY = env.str('SECRET_KEY')
 
-THIRD_PARTY_APP = [
-    "django_extensions",
-]  # third party apps goe here
+DEBUG = True
 
-INSTALLED_APPS = INSTALLED_APPS + THIRD_PARTY_APP
-
+ALLOWED_HOSTS = ['*']
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": env.str("DB_NAME"),
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": env.str('DB_NAME'),
         "USER": env.str("DB_USER"),
-        "PASSWORD": env.str("DB_PWD"),
-        "HOST": env.str("DB_HOST"),
-        "PORT": env.str("DB_PORT"),
+        "PASSWORD": env.str("DB_PWD")
+       # "PORT": env.str("DB_PORT"),
+       # "HOST": env.str("DB_HOST")
     }
 }
-
-# If you want to use sqlite3 instead, then uncomment this and comment the above.
-
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.sqlite3",
-#         "NAME": BASE_DIR / "db.sqlite3",
-#     }
-# }
