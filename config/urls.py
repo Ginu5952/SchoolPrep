@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path,include
 
 admin.site.site_header = "SCHOOLPREP GENIE"
-admin.site.index_title = "A School mate........."   #  Replace with  suitable sentence :()
+admin.site.index_title = "A School Mateeeeee"   #  Replace with  suitable sentence :()
 admin.site.site_title = "WELCOME TO SCHOOL PREP GENIE"
 
 urlpatterns = [
