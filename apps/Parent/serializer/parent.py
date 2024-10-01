@@ -2,6 +2,8 @@ from rest_framework import serializers
 from apps.Parent.models.parent import Parent
 from apps.User.serializer.user import UserSerializer
 from django.contrib.auth.models import User
+from apps.Student.models.student import Student
+from apps.Student.serializer.student import StudentSerializer
 
 class ParentSerializer(serializers.ModelSerializer):
     user = UserSerializer()
@@ -29,4 +31,28 @@ class ParentSerializer(serializers.ModelSerializer):
         gender=validated_data.get('gender')
         )
           
-        return parent    
+
+        children_data = validated_data.pop('children', [])
+        
+
+        for child_data in children_data:
+            student_user = User.objects.create_user(
+                username=child_data['username'],
+                password=child_data['password'],
+                first_name=child_data.get('first_name', ''),
+                last_name=child_data.get('last_name', '')
+            )
+        
+
+            Student.objects.create(
+            user=student_user,
+                parent=parent,
+                age=child_data['age'],
+                class_id_id=child_data['class_id'].id, 
+                gender=child_data['gender'],
+                username=child_data['username']
+            )
+        
+        
+   
+            return parent    
