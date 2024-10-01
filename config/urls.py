@@ -25,5 +25,5 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path('api/v1/auth/', include('dj_rest_auth.urls')),
 
-    path('api/v1/user/', include('apps.user.urls',namespace='user-urls')),
+    path('api/v1/user/', include('apps.User.urls',namespace='user-urls')),
 ]
