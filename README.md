@@ -17,7 +17,7 @@ Create DataBase
 
 ```psql
 psql -U postgres
-CREATE DATABASE car_care_pro_django;
+CREATE DATABASE schoolprep_django;
 \q
 ```
 ### Please note that the commands for setting up the development environment, creating migrations, and applying them to the database are written in the Makefile for convenience.
