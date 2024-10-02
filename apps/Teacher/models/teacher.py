@@ -9,9 +9,10 @@ class Teacher(models.Model):
     def __str__(self):
         return f"{self.user.first_name} {self.user.last_name}"
 
+
 class Class(models.Model):
     class_name = models.CharField(max_length=100)
     academic_year_start = models.IntegerField()
     academic_year_end = models.IntegerField()
     grade = models.IntegerField()
-    teacher_id = models.ForeignKey(Teacher, on_delete=models.CASCADE)
+    teacher_id = models.ForeignKey(Teacher, on_delete=models.CASCADE, default=1)
