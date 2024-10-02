@@ -15,16 +15,16 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path,include
+from django.urls import path, include
 
 admin.site.site_header = "SCHOOLPREP GENIE"
-admin.site.index_title = "A School Mateeeeee"   #  Replace with  suitable sentence :()
-admin.site.site_title = "WELCOME TO SCHOOL PREP GENIE"
+admin.site.index_title = "Welcome to the School Prep Genie "  
+admin.site.site_title = "SCHOOL PREP GENIE"
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
-    path('api/v1/auth/', include('dj_rest_auth.urls')),
-
-    path('api/v1/user/', include('apps.User.urls',namespace='user-urls')),
-    path('api/v1/parent/',include('apps.Parent.urls',namespace='parent-urls'))
+    path("admin/", admin.site.urls),  
+    path('api/v1/auth/', include('dj_rest_auth.urls')),  
+     path('api/v1/user/', include('apps.User.urls', namespace='user-urls')),
+    path('api/v1/parent/', include('apps.Parent.urls', namespace='parent-urls')),
+    path('api/v1/teacher/', include('apps.Teacher.urls', namespace='teacher-urls')),
 ]
