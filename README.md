@@ -1,14 +1,25 @@
 # SchoolPrep Genie
+
+<h1 align="center">SchoolPrepGenie</h1>
+<h2 align="center">"Pack Smart, Stay Informed - The School App Every Parent Needs"</h2>
+<p align="center">
+
 # Mission Statement
 
-Stay organized and informed with our all-in-one platform designed for students, parents, and teachers.
+" Connect teachers, parents and students and maintain their data that will make this connection reliable, effective and smooth "
 
 # Mission Objectives
-  - Our app helps students pack schoolbags based on their unique timetables, provides reminders for special instructions and events,   and ensures parents stay updated with real-time notifications.
-  - Teachers can easily track attendance and share feedback, fostering stronger communication between schools and families.
-  - Simplify school preparation, stay connected, and enhance the learning experience with our seamless solution.
 
-# Instrutions to run program
+- List students-timetable (perticular to class)
+- Lunch Menu
+- Announcement (Upcoming Events)
+- Attendance Sheet
+- Teachers-Feedback / write to Teacher
+- Course Calender 
+- Leave Note (Leave Application)
+
+
+# Instructions to run pogram
 
 - Open a terminal
 - Run following commands
@@ -52,4 +63,4 @@ Quit the server with CONTROL-C.
 - To stop the development server, press CONTROL-C in the terminal where it is running.
 
 
-## Need to review this
+
