@@ -105,7 +105,7 @@ REST_FRAMEWORK = {
 }
 
 
-#SITE_URL = 'http://127.0.0.1:8000'
+SITE_URL = 'http://127.0.0.1:8000'
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

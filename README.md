@@ -3,12 +3,12 @@
 
 Stay organized and informed with our all-in-one platform designed for students, parents, and teachers.
 
-# Mission Objective
+# Mission Objectives
   - Our app helps students pack schoolbags based on their unique timetables, provides reminders for special instructions and events,   and ensures parents stay updated with real-time notifications.
   - Teachers can easily track attendance and share feedback, fostering stronger communication between schools and families.
   - Simplify school preparation, stay connected, and enhance the learning experience with our seamless solution.
 
-# Instrutions to run programm
+# Instrutions to run program
 
 - Open a terminal
 - Run following commands
@@ -17,7 +17,7 @@ Create DataBase
 
 ```psql
 psql -U postgres
-CREATE DATABASE car_care_pro_django;
+CREATE DATABASE schoolprep_django;
 \q
 ```
 ### Please note that the commands for setting up the development environment, creating migrations, and applying them to the database are written in the Makefile for convenience.
@@ -50,3 +50,6 @@ Quit the server with CONTROL-C.
 
 #### Additional Notes
 - To stop the development server, press CONTROL-C in the terminal where it is running.
+
+
+## Need to review this
