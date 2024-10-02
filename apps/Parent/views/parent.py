@@ -1,18 +1,3 @@
-# from rest_framework.decorators import api_view
-# from rest_framework.response import Response
-# from rest_framework import status
-# from apps.Parent.models.parent import Parent
-# from apps.Parent.serializer.parent import ParentSerializer
-
-
-
-
-# @api_view(['GET'])
-# def parent_list(request):
-#     if request.method == 'GET':
-#         parents = Parent.objects.all()
-#         serializer = ParentSerializer(parents, many=True)
-#         return Response(serializer.data)
 
 from rest_framework.decorators import api_view,permission_classes
 from rest_framework.response import Response
@@ -40,9 +25,6 @@ def parent_list(request):
         return Response(serializer.data)
 
     elif request.method == 'POST':
-        
-        
-       
         parent_data = request.data.get('user')
         children_data = request.data.get('children')
         gender = request.data.get('gender')
