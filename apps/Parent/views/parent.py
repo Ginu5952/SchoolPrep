@@ -16,6 +16,9 @@ from django.core.mail import send_mail, BadHeaderError
 from smtplib import SMTPRecipientsRefused
 
 
+
+
+
 @api_view(['GET', 'POST'])
 @permission_classes([AllowAny])  
 def parent_list(request):
@@ -125,7 +128,8 @@ def parent_list(request):
                         gender=child_data['gender'],
                         username=student_user.username,
                         first_name=child_data.get('first_name', ''),
-                        last_name=child_data.get('last_name', '')
+                        last_name=child_data.get('last_name', ''),
+                        #teacher_name=child_data['teacher_name']
                     )
 
                    
@@ -143,7 +147,8 @@ def parent_list(request):
                         "age": student.age,
                         "class_id": class_info,
                         "gender": student.gender,
-                        "username": student.user.username
+                        "username": student.user.username,
+                       # "teacher_name": student.teacher_name
                     })
 
                

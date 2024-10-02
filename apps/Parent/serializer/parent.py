@@ -13,15 +13,10 @@ class ParentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Parent
         fields = ['id','user', 'address', 'phone_number', 'gender', 'children']
+        
 
     def create(self, validated_data):
-        
-      
-
         user_data = validated_data.pop('user')
-        
-   
-      
         user = User.objects.create_user(
             username=user_data['username'],
             password=user_data['password'],

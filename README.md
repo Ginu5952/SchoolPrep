@@ -4,6 +4,13 @@
 <h2 align="center">"Pack Smart, Stay Informed - The School App Every Parent Needs"</h2>
 <p align="center">
 
+
+<!-- # Technologies Used
+![Django](https://img.shields.io/badge/-Django-white?style=for-the-badge&logo=django&logoColor=white&logoWidth=20&color=092E20)
+![Python](https://img.shields.io/badge/-Python-white?style=for-the-badge&logo=python&logoColor=white&logoWidth=20&color=3776AB)
+![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-white?style=for-the-badge&logo=postgresql&logoColor=white&logoWidth=20&color=4169E1) -->
+
+
 # Mission Statement
 
 " Connect teachers, parents and students and maintain their data that will make this connection reliable, effective and smooth "
