@@ -485,4 +485,6 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# ignore specific file
+/home/dci-student/Desktop/DCI/final_project/SchoolPrep/config/settings/dev.py
 # End of https://www.toptal.com/developers/gitignore/api/django,python,macos,windows,linux,visualstudiocode,pycharm,venv,virtualenv
