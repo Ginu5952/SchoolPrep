@@ -9,12 +9,13 @@ from django.contrib.auth.hashers import check_password
 class StudentSerializer(serializers.ModelSerializer):
     
     class_id = serializers.PrimaryKeyRelatedField(queryset=Class.objects.all())  
-    #class_info = ClassSerializer(source='class_id', read_only=True) 
+    class_info = ClassSerializer(source='class_id', read_only=True) 
     #teacher_name = serializers.CharField(source='teacher.user.first_name', read_only=True)
     username = serializers.CharField()
     first_name = serializers.CharField()
     last_name = serializers.CharField()
     password = serializers.CharField(write_only=True)
+    class_id1 = ClassSerializer()
     
 
     class Meta:
