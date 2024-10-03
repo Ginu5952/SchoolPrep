@@ -69,7 +69,10 @@ Quit the server with CONTROL-C.
 ```
 
 5. **Stop the Server:**
-#### To stop the server, press CONTROL-C in the terminal where it's running.
+```
+ To stop the server, press CONTROL-C in  the terminal where it's running.
+
+```
 
 
 
