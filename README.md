@@ -42,14 +42,14 @@ CREATE DATABASE schoolprep_django;
 
 
 2. **Install Dependencies:**
-### Please note that the commands for setting up the development environment, creating migrations, and applying them to the database are written in the Makefile for convenience.
+###### Please note that the commands for setting up the development environment, creating migrations, and applying them to the database are written in the Makefile for convenience.
 
 ```bash
 make dev-install
 ```
 
 3. **Start the Development Server:**
-### The command starts the Django development server using the settings defined in the config/settings/dev.py file. After starting the server, Django typically outputs a message indicating the URL where you can access your application.
+###### The command starts the Django development server using the settings defined in the config/settings/dev.py file. After starting the server, Django typically outputs a message indicating the URL where you can access your application.
 
 ```bash
 make start
