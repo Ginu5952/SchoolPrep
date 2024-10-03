@@ -138,7 +138,8 @@ def parent_list(request):
                         "class_name": student.class_id.class_name,
                         "academic_year_start": student.class_id.academic_year_start,
                         "academic_year_end": student.class_id.academic_year_end,
-                        "grade": student.class_id.grade
+                        "grade": student.class_id.grade,
+                       # "teacher_name": student.teacher_name
                     }
 
                     students.append({
@@ -148,7 +149,7 @@ def parent_list(request):
                         "class_id": class_info,
                         "gender": student.gender,
                         "username": student.user.username,
-                       # "teacher_name": student.teacher_name
+                        #"teacher_name": student.teacher_name
                     })
 
                
