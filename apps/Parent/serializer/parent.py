@@ -4,11 +4,13 @@ from apps.User.serializer.user import UserSerializer
 from django.contrib.auth.models import User
 from apps.Student.models.student import Student
 from apps.Student.serializer.student import StudentSerializer
+from apps.Teacher.serializer.teacher import ClassSerializer
 
 
 class ParentSerializer(serializers.ModelSerializer):
     user = UserSerializer()  
     children = StudentSerializer(many=True)
+    #class1 = ClassSerializer(many=True)
 
     class Meta:
         model = Parent
