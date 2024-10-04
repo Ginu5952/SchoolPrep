@@ -1,5 +1,6 @@
 
 from rest_framework.decorators import api_view,permission_classes
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework import status
 from apps.Parent.models.parent import Parent
@@ -176,10 +177,5 @@ def parent_list(request):
             )
 
 
-@api_view(['GET'])
-def parent_student_info(request):
-    if request.user.is_authenticated:
-        students = Student.objects.filter(parent__user=request.user)
-        serializer = StudentSerializer(students, many=True)
-        return Response(serializer.data)    
-    return Response({'detail': 'Not authenticated'}, status=401)
+  
+    
