@@ -15,11 +15,11 @@ class StudentSerializer(serializers.ModelSerializer):
     first_name = serializers.CharField()
     last_name = serializers.CharField()
     password = serializers.CharField(write_only=True)
-    class_id1 = ClassSerializer()
+    #class_id1 = ClassSerializer()
     
 
     class Meta:
         model = Student
-        fields = ['id','first_name','last_name', 'age', 'class_id', 'class_info', 'gender','username','password','teacher_name']
+        fields = ['id','first_name','last_name', 'age', 'class_id', 'class_info', 'gender','username','password']
   
   
