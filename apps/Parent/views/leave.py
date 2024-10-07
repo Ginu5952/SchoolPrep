@@ -34,7 +34,7 @@ def parent_leave_list_create(request):
        
         parent_id = request.data.get('parent_id')
         student_id = request.data.get('student_id')
-        teacher_id = request.data.get('teacher_id')
+        
         
         try:
             parent = Parent.objects.get(id=parent_id)
@@ -49,10 +49,7 @@ def parent_leave_list_create(request):
         except Student.DoesNotExist:
             return Response({'error': 'Student not found.'}, status=status.HTTP_400_BAD_REQUEST)
         
-        try:
-            teacher = Teacher.objects.get(id=teacher_id)
-        except Student.DoesNotExist:
-            return Response({'error': 'Teacher not found.'}, status=status.HTTP_400_BAD_REQUEST)
+       
         
         
         validated_data = {
@@ -61,8 +58,8 @@ def parent_leave_list_create(request):
             'start_date': request.data.get('start_date'),
             'end_date': request.data.get('end_date'),
             'parent': request.data.get('parent_id'),
-            'student': request.data.get('student_id'),
-            'teacher': request.data.get('teacher_id')
+            'student': request.data.get('student_id')
+           
         }
         
        

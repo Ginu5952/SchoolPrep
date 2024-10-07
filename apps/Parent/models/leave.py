@@ -24,7 +24,7 @@ class Leave(models.Model):
     leave_description = models.TextField()
     start_date = models.DateField()
     end_date = models.DateField()
-    teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE)
+  
    
 
     def __str__(self):

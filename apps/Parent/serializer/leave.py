@@ -10,27 +10,27 @@ class LeaveSerializer(serializers.ModelSerializer):
     parent_name = serializers.SerializerMethodField()
     student_name = serializers.SerializerMethodField()
     class_name = serializers.SerializerMethodField()
-    teacher = serializers.SerializerMethodField()
-    #print(teacher) 
+    teacher_name = serializers.SerializerMethodField()
+ 
 
     class Meta:
         model = Leave
-        fields = ['id','parent','parent_name','student','student_name','class_name','leave_type', 'status', 'leave_description', 'start_date', 'end_date','teacher']
+        fields = ['id','parent','parent_name','student','student_name','class_name','leave_type', 'status', 'leave_description', 'start_date', 'end_date','teacher_name']
         read_only_fields = ['status'] 
         
     def get_parent_name(self, obj):
         return obj.parent.user.first_name + " " + obj.parent.user.last_name
     
-    def get_teacher(self, obj):
-        return obj.teacher.user.first_name + " " + obj.teacher.user.last_name
-        # if obj.teacher:  
-        #     #print("check2")
-        #     #print(obj.teacher.user.first_name + " " + obj.teacher.user.last_name)
-        #     return obj.teacher.user.first_name + " " + obj.teacher.user.last_name
-        # print("check3")
-        # return f"no teacher assigned" 
-    #     return obj.teacher.user.first_name + " " + obj.teacher.user.last_name
-    # return None    
+        
+    def get_class_name(self, obj):
+        return obj.student.class_id.class_name
+    
+    def get_teacher_name(self, obj):
+      
+        teacher = obj.student.class_id.teacher_id
+        return teacher.user.first_name + " " + teacher.user.last_name
+
+        
 
     def get_student_name(self, obj):
         return obj.student.first_name + " " + obj.student.last_name  
