@@ -16,11 +16,16 @@ class TeacherSerializer(serializers.ModelSerializer):
         model = Teacher
         fields = ["id", "user", "gender",]
 
+    def create(self, validated_data):
+        user_data = validated_data.pop('user')  
+       
+        user_serializer = UserSerializer(data=user_data)
+        user_serializer.is_valid(raise_exception=True)
+        user = user_serializer.save()  
+       
+       
+        teacher = Teacher.objects.create(user=user, **validated_data)
 
-class ClassSerializer(serializers.ModelSerializer):
-    teacher = TeacherSerializer(source='teacher_id')
-    class Meta:
-        model = Class
-        fields = ['id', 'class_name', 'academic_year_start', 'academic_year_end', 'grade','teacher']
+        return teacher
 
 
