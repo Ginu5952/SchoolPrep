@@ -11,9 +11,26 @@ class ClassAdmin(admin.ModelAdmin):
         "grade",
         "teacher_id"
     )
-    
 
-admin.site.register(Teacher)
+class TeacherAdmin(admin.ModelAdmin):
+    list_display = ('id','username', 'first_name', 'last_name', 'gender')
+
+    def username(self, obj):
+        return obj.user.username  
+
+    def first_name(self, obj):
+        return obj.user.first_name  
+
+    def last_name(self, obj):
+        return obj.user.last_name  
+
+
+    username.admin_order_field = 'user__username'  
+    first_name.admin_order_field = 'user__first_name'  
+    last_name.admin_order_field = 'user__last_name'  
+       
+
+admin.site.register(Teacher,TeacherAdmin)
 admin.site.register(Class, ClassAdmin)
 
 

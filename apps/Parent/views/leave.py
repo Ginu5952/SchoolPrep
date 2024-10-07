@@ -36,8 +36,6 @@ def parent_leave_list_create(request):
         student_id = request.data.get('student_id')
         teacher_id = request.data.get('teacher_id')
         
-        print("Found Parent:", parent_id,student_id)
-        
         try:
             parent = Parent.objects.get(id=parent_id)
            

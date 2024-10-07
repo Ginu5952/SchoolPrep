@@ -11,7 +11,7 @@ class LeaveSerializer(serializers.ModelSerializer):
     student_name = serializers.SerializerMethodField()
     class_name = serializers.SerializerMethodField()
     teacher = serializers.SerializerMethodField()
-    
+    #print(teacher) 
 
     class Meta:
         model = Leave
@@ -22,9 +22,13 @@ class LeaveSerializer(serializers.ModelSerializer):
         return obj.parent.user.first_name + " " + obj.parent.user.last_name
     
     def get_teacher(self, obj):
-        if obj.teacher:  
-            return obj.teacher.user.first_name + " " + obj.teacher.user.last_name
-        return f"no teacher assigned" 
+        return obj.teacher.user.first_name + " " + obj.teacher.user.last_name
+        # if obj.teacher:  
+        #     #print("check2")
+        #     #print(obj.teacher.user.first_name + " " + obj.teacher.user.last_name)
+        #     return obj.teacher.user.first_name + " " + obj.teacher.user.last_name
+        # print("check3")
+        # return f"no teacher assigned" 
     #     return obj.teacher.user.first_name + " " + obj.teacher.user.last_name
     # return None    
 
