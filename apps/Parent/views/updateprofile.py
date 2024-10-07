@@ -33,36 +33,48 @@ def edit_profile(request):
         parent_instance.address = request.data.get('address', parent_instance.address)
         parent_instance.gender = request.data.get('gender', parent_instance.gender)
         parent_instance.save()
+        parent_data = {
+            "id": parent_instance.id,
+            "user": {
+                "first_name": parent_instance.user.first_name,
+                "last_name": parent_instance.user.last_name,
+                "email": parent_instance.user.email
+            },
+            "phone_number": parent_instance.phone_number,
+            "address": parent_instance.address,
+            "gender": parent_instance.gender
+        }
 
-        children_data = request.data.get('children', [])
-        for child_data in children_data:
-            child_instance = Student.objects.filter(parent=parent_instance, id=child_data.get('id')).first()
 
-            if child_instance:
-                child_instance.user.first_name = child_data.get('first_name', child_instance.user.first_name)
-                child_instance.user.last_name = child_data.get('last_name', child_instance.user.last_name)
-                child_instance.age = child_data.get('age', child_instance.age)
-                child_instance.gender = child_data.get('gender', child_instance.gender)
-                child_instance.class_id_id = child_data.get('class_id', child_instance.class_id_id)
-                child_instance.user.save()
-                child_instance.save()
-            else:
+        # children_data = request.data.get('children', [])
+        # for child_data in children_data:
+        #     child_instance = Student.objects.filter(parent=parent_instance, id=child_data.get('id')).first()
+
+        #     if child_instance:
+        #         child_instance.user.first_name = child_data.get('first_name', child_instance.user.first_name)
+        #         child_instance.user.last_name = child_data.get('last_name', child_instance.user.last_name)
+        #         child_instance.age = child_data.get('age', child_instance.age)
+        #         child_instance.gender = child_data.get('gender', child_instance.gender)
+        #         child_instance.class_id_id = child_data.get('class_id', child_instance.class_id_id)
+        #         child_instance.user.save()
+        #         child_instance.save()
+        #     else:
               
-                student_user = User.objects.create_user(
-                    username=child_data['username'],
-                    password=child_data['password'],
-                    first_name=child_data.get('first_name', ''),
-                    last_name=child_data.get('last_name', '')
-                )
+        #         student_user = User.objects.create_user(
+        #             username=child_data['username'],
+        #             password=child_data['password'],
+        #             first_name=child_data.get('first_name', ''),
+        #             last_name=child_data.get('last_name', '')
+        #         )
 
-                Student.objects.create(
-                    user=student_user,
-                    parent=parent_instance,
-                    age=child_data['age'],
-                    class_id_id=child_data['class_id'],
-                    gender=child_data['gender']
-                )
+        #         Student.objects.create(
+        #             user=student_user,
+        #             parent=parent_instance,
+        #             age=child_data['age'],
+        #             class_id_id=child_data['class_id'],
+        #             gender=child_data['gender']
+        #         )
 
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(parent_data, status=status.HTTP_200_OK)
 
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
