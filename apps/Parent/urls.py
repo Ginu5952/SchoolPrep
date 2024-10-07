@@ -8,5 +8,6 @@ urlpatterns = [
         path('verify-email/<str:uidb64>/<str:token>/', views.verify_email, name='verify_email'),
         path('view/profile/children/', views.student_info, name='children_profile_view'),
         path('view/profile/', views.parent_info, name='parent_profile_view'),
-        path('edit/profile/',views.edit_profile, name='edit_view')
+        path('edit/profile/',views.edit_profile, name='edit_view'),
+        path('apply/leave/',views.parent_leave_list_create, name='apply_leave')
     ]
