@@ -2,7 +2,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 from apps.Teacher.models.timetable import TimeTable
-from apps.Teacher.serializers.timetable import TimeTableSerializer
+from apps.Teacher.serializer.timetable import TimeTableSerializer
 
 
 @api_view(["GET", "POST"])
