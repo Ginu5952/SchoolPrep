@@ -65,10 +65,12 @@ class LeaveAdmin(admin.ModelAdmin):
     get_student_name.short_description = 'Student'
     get_class_name.short_description = 'Class'
     get_teacher_name.short_description = 'Teacher'
-    
+
+class WritemsgAdmin(admin.ModelAdmin):
+    list_display = ('parent', 'student', 'teacher', 'text_msg', 'response')
   
 admin.site.register(Parent,ParentAdmin)
 admin.site.register(Leave,LeaveAdmin)
-admin.site.register(WriteMsg)
+admin.site.register(WriteMsg,WritemsgAdmin)
 
 # Register your models here.
