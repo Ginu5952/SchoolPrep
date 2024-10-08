@@ -34,4 +34,4 @@ class WriteMsgSerializer(serializers.ModelSerializer):
         return value
 
     def create(self, validated_data):
-        return Write_msg.objects.create(**validated_data)
+        return WriteMsg.objects.create(**validated_data)
