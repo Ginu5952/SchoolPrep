@@ -1,8 +1,8 @@
 from rest_framework.decorators import api_view,permission_classes
 from rest_framework.response import Response
 from rest_framework import status
-from apps.Student.models.student import Student
-from apps.Student.serializer.student import StudentSerializer
+from apps.Student.models.student import Student, Announcement
+from apps.Student.serializer.student import StudentSerializer, AnnouncementSerializer
 from apps.Teacher.models.teacher import Class
 from rest_framework.permissions import AllowAny
 
@@ -41,3 +41,12 @@ def student_detail(request,pk):
         
     elif request.method == "DELETE":
         student
+
+@api_view()
+@permission_classes([AllowAny])
+def view_announcement(request):
+    announcement = Announcement.objects.all()
+    serializer = AnnouncementSerializer(announcement, many= True)
+    return Response(serializer.data, status=status.HTTP_200_OK)
+
+    
