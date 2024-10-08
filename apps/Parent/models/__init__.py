@@ -1,3 +1,3 @@
 from .parent import Parent
 #from .leave import Leave
-from .writemsg import Write_msg
+from .writemsg import WriteMsg

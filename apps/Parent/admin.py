@@ -1,6 +1,7 @@
 from django.contrib import admin
 from apps.Parent.models.parent import Parent
 from apps.Parent.models.leave import Leave
+from apps.Parent.models.writemsg import WriteMsg
 
 
 class ParentAdmin(admin.ModelAdmin):
@@ -68,5 +69,6 @@ class LeaveAdmin(admin.ModelAdmin):
   
 admin.site.register(Parent,ParentAdmin)
 admin.site.register(Leave,LeaveAdmin)
+admin.site.register(WriteMsg)
 
 # Register your models here.

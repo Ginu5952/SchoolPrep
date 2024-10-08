@@ -4,7 +4,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 from apps.Parent.serializer.writemsg import WriteMsgSerializer
-from apps.Parent.models.writemsg import Write_msg
+from apps.Parent.models.writemsg import WriteMsg
 
 @api_view(['POST'])
 def write_message(request):

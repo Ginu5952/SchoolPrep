@@ -4,7 +4,7 @@ from apps.Student.models.student import Student
 from apps.Teacher.models.teacher import Teacher
 
 
-class Write_msg(models.Model):
+class WriteMsg(models.Model):
     parent = models.ForeignKey(Parent, on_delete=models.CASCADE, verbose_name="Sender Parent")  
     student = models.ForeignKey(Student, on_delete=models.CASCADE, verbose_name="Student Involved")
     teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE, verbose_name="Recipient Teacher")
