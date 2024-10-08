@@ -1,7 +1,7 @@
 # serializers.py
 
 from rest_framework import serializers
-from apps.Parent.models.writemsg import Write_msg
+from apps.Parent.models.writemsg import WriteMsg
 from apps.Parent.models.parent import Parent
 from apps.Student.models.student import Student
 from apps.Teacher.models.teacher import Teacher
@@ -16,7 +16,7 @@ class WriteMsgSerializer(serializers.ModelSerializer):
     teacher_name = serializers.SerializerMethodField()
     
     class Meta:
-        model = Write_msg  
+        model = WriteMsg  
         fields = ['id', 'parent_id', 'parent_name', 'student_id', 'student_name', 'teacher_id', 'teacher_name', 'text_msg','response']
         
     def get_parent_name(self, obj):
