@@ -7,6 +7,8 @@ from apps.Parent.serializer.parent import ParentSerializer
 from apps.Student.models.student import Student
 from apps.Student.serializer.student import StudentSerializer
 from django.contrib.auth.models import User
+from apps.Parent.serializer.parentprofile import ParentProfileSerializer
+
 
 @api_view(['GET'])
 def student_info(request):
@@ -21,8 +23,8 @@ def parent_info(request):
     if request.user.is_authenticated:
         try:
             parent = Parent.objects.get(user=request.user)  
-            serializer = ParentSerializer(parent) 
+            serializer = ParentProfileSerializer(parent)  
             return Response(serializer.data, status=200)
         except Parent.DoesNotExist:
             return Response({"error": "Parent not found"}, status=404)
-    return Response({'detail': 'Not authenticated'}, status=401)  
+    return Response({'detail': 'Not authenticated'}, status=401)
