@@ -24,7 +24,8 @@ admin.site.site_title = "SCHOOL PREP GENIE"
 urlpatterns = [
     path("admin/", admin.site.urls),  
     path('api/v1/auth/', include('dj_rest_auth.urls')),  
-     path('api/v1/user/', include('apps.User.urls', namespace='user-urls')),
+    path('api/v1/user/', include('apps.User.urls', namespace='user-urls')),
     path('api/v1/parent/', include('apps.Parent.urls', namespace='parent-urls')),
     path('api/v1/teacher/', include('apps.Teacher.urls', namespace='teacher-urls')),
+    path('api/v1/student/', include('apps.Student.urls', namespace='student-urls')),
 ]
