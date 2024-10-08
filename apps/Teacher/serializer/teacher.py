@@ -9,9 +9,23 @@ class ClassSerializer(serializers.ModelSerializer):
 
 
 class TeacherSerializer(serializers.ModelSerializer):
+    
     user = UserSerializer() 
     
-
     class Meta:
         model = Teacher
         fields = ["id", "user", "gender",]
+
+    def create(self, validated_data):
+        user_data = validated_data.pop('user')  
+       
+        user_serializer = UserSerializer(data=user_data)
+        user_serializer.is_valid(raise_exception=True)
+        user = user_serializer.save()  
+       
+       
+        teacher = Teacher.objects.create(user=user, **validated_data)
+
+        return teacher
+
+

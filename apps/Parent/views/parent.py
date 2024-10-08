@@ -1,20 +1,6 @@
-# from rest_framework.decorators import api_view
-# from rest_framework.response import Response
-# from rest_framework import status
-# from apps.Parent.models.parent import Parent
-# from apps.Parent.serializer.parent import ParentSerializer
-
-
-
-
-# @api_view(['GET'])
-# def parent_list(request):
-#     if request.method == 'GET':
-#         parents = Parent.objects.all()
-#         serializer = ParentSerializer(parents, many=True)
-#         return Response(serializer.data)
 
 from rest_framework.decorators import api_view,permission_classes
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework import status
 from apps.Parent.models.parent import Parent
@@ -31,6 +17,9 @@ from django.core.mail import send_mail, BadHeaderError
 from smtplib import SMTPRecipientsRefused
 
 
+
+
+
 @api_view(['GET', 'POST'])
 @permission_classes([AllowAny])  
 def parent_list(request):
@@ -40,9 +29,6 @@ def parent_list(request):
         return Response(serializer.data)
 
     elif request.method == 'POST':
-        
-        
-       
         parent_data = request.data.get('user')
         children_data = request.data.get('children')
         gender = request.data.get('gender')
@@ -143,7 +129,8 @@ def parent_list(request):
                         gender=child_data['gender'],
                         username=student_user.username,
                         first_name=child_data.get('first_name', ''),
-                        last_name=child_data.get('last_name', '')
+                        last_name=child_data.get('last_name', ''),
+                        #teacher_name=child_data['teacher_name']
                     )
 
                    
@@ -152,7 +139,8 @@ def parent_list(request):
                         "class_name": student.class_id.class_name,
                         "academic_year_start": student.class_id.academic_year_start,
                         "academic_year_end": student.class_id.academic_year_end,
-                        "grade": student.class_id.grade
+                        "grade": student.class_id.grade,
+                       # "teacher_name": student.teacher_name
                     }
 
                     students.append({
@@ -161,7 +149,8 @@ def parent_list(request):
                         "age": student.age,
                         "class_id": class_info,
                         "gender": student.gender,
-                        "username": student.user.username
+                        "username": student.user.username,
+                        #"teacher_name": student.teacher_name
                     })
 
                
@@ -188,10 +177,5 @@ def parent_list(request):
             )
 
 
-@api_view(['GET'])
-def parent_student_info(request):
-    if request.user.is_authenticated:
-        students = Student.objects.filter(parent__user=request.user)
-        serializer = StudentSerializer(students, many=True)
-        return Response(serializer.data)    
-    return Response({'detail': 'Not authenticated'}, status=401)
+  
+    
