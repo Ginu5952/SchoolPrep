@@ -22,6 +22,7 @@ THIRD_PARTY_APP = [
     
         'rest_framework',  
         'rest_framework.authtoken',
+        'django_extensions',
     ]  
 
 INSTALLED_APPS = [*DEFAULT_APP, *CREATED_APP, *THIRD_PARTY_APP]
