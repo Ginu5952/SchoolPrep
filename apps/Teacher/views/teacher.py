@@ -1,13 +1,14 @@
-from rest_framework.decorators import api_view,permission_classes
+from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 from rest_framework import status
-from apps.Teacher.models.teacher import Teacher,Class
-from apps.Teacher.serializer.teacher import TeacherSerializer,ClassSerializer
+from apps.Teacher.models.teacher import Teacher, Class
+from apps.Teacher.serializer.teacher import TeacherSerializer, ClassSerializer
 from django.shortcuts import get_object_or_404
 from rest_framework.permissions import AllowAny
 
-@api_view(['GET', 'POST'])
-@permission_classes([AllowAny]) 
+
+@api_view(["GET", "POST"])
+@permission_classes([AllowAny])
 def teacher_list(request):
     if request.method == "GET":
         teachers = Teacher.objects.all()
@@ -23,12 +24,14 @@ def teacher_list(request):
 
 
 @api_view(["GET", "PUT", "DELETE"])
-@permission_classes([AllowAny]) 
+@permission_classes([AllowAny])
 def teacher_detail(request, pk):
     teacher = Teacher.objects.filter(pk=pk).first()
 
     if teacher is None:
-        return Response({"error": "Teacher not found"}, status=status.HTTP_404_NOT_FOUND)
+        return Response(
+            {"error": "Teacher not found"}, status=status.HTTP_404_NOT_FOUND
+        )
 
     if request.method == "GET":
         serializer = TeacherSerializer(teacher)
@@ -45,17 +48,16 @@ def teacher_detail(request, pk):
         teacher.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
-@api_view(["GET", "PUT", "DELETE"])
-@permission_classes([AllowAny]) 
-def class_detail(request, pk):
-  
-    class_ = get_object_or_404(Class, pk=pk)
 
+@api_view(["GET", "PUT", "DELETE"])
+@permission_classes([AllowAny])
+def class_detail(request, pk):
+
+    class_ = get_object_or_404(Class, pk=pk)
 
     if request.method == "GET":
         serializer = ClassSerializer(class_)
         return Response(serializer.data, status=status.HTTP_200_OK)
-
 
     elif request.method == "PUT":
         serializer = ClassSerializer(class_, data=request.data)
