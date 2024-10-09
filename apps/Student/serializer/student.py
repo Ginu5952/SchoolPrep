@@ -1,6 +1,6 @@
 
 from rest_framework import serializers
-from apps.Teacher.serializer.teacher import ClassSerializer
+from apps.Teacher.serializer.teacher import ClassSerializer,TeacherSerializer
 from apps.Student.models.student import Student
 from django.contrib.auth.models import User
 from apps.Teacher.models.teacher import Class
@@ -15,10 +15,10 @@ class StudentSerializer(serializers.ModelSerializer):
     last_name = serializers.CharField()
     password = serializers.CharField(write_only=True)
     #class_id1 = ClassSerializer()
-    
+    teacher_info = TeacherSerializer(source='class_id.teacher_id', read_only=True)
 
     class Meta:
         model = Student
-        fields = ['id','first_name','last_name', 'age', 'class_id', 'class_info', 'gender','username','password']
+        fields = ['id','first_name','last_name', 'age', 'class_id', 'class_info', 'gender','username','password','teacher_info']
   
 
