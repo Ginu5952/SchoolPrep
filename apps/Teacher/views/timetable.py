@@ -19,31 +19,31 @@ def timetable_view(request):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-# @api_view(["GET", "PUT", "DELETE"])
-# def timetable_update(request, pk):
-#     """
-#     Handles GET, PUT, and DELETE requests for a specific timetable identified by primary key (pk).
-#     """
-#     try:
-#         # Fetch the timetable instance by primary key (pk)
-#         timetable = TimeTable.objects.get(pk=pk)
-#     except TimeTable.DoesNotExist:
-#         return Response(status=status.HTTP_404_NOT_FOUND)
+@api_view(["GET", "PUT", "DELETE"])
+def timetable_update(request, pk):
+    """
+    Handles GET, PUT, and DELETE requests for a specific timetable identified by primary key (pk).
+    """
+    try:
+        # Fetch the timetable instance by primary key (pk)
+        timetable = TimeTable.objects.get(pk=pk)
+    except TimeTable.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
 
-#     if request.method == "GET":
-#         # Serialize the timetable instance and return its data
-#         serializer = TimeTableSerializer(timetable)
-#         return Response(serializer.data)
+    if request.method == "GET":
+        # Serialize the timetable instance and return its data
+        serializer = TimeTableSerializer(timetable)
+        return Response(serializer.data)
 
-#     elif request.method == "PUT":
-#         # Deserialize the request data and update the existing timetable instance
-#         serializer = TimeTableSerializer(timetable, data=request.data)
-#         if serializer.is_valid():
-#             serializer.save()
-#             return Response(serializer.data)
-#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    elif request.method == "PUT":
+        # Deserialize the request data and update the existing timetable instance
+        serializer = TimeTableSerializer(timetable, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-#     elif request.method == "DELETE":
-#         # Delete the timetable instance
-#         timetable.delete()
-#         return Response(status=status.HTTP_204_NO_CONTENT)
+    elif request.method == "DELETE":
+        # Delete the timetable instance
+        timetable.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)

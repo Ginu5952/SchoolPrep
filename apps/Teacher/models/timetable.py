@@ -9,3 +9,5 @@ class TimeTable(models.Model):
 
     def __str__(self):
         return f"Timetable for {self.class_id}"
+    class Meta:
+        unique_together = ('teacher', 'class_id') 
