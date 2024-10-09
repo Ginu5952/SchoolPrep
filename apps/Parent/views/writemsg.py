@@ -16,7 +16,3 @@ def write_message(request):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-# First fetch the authenticated parent 
-# add parentinfo to msg data before saving 
-# link msg to parent 
-#serializer msg follow from line 15
