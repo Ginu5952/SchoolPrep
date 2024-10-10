@@ -4,7 +4,7 @@ from apps.Teacher.models.teacher import Class
 
 class TimeTable(models.Model):
     teacher = models.ForeignKey(Teacher, on_delete = models.CASCADE)
-    class_id = models.ForeignKey(Class, on_delete=models.CASCADE)
+    class_id = models.ForeignKey(Class, on_delete=models.SET_NULL)
     timetable_content = models.JSONField()
 
     def __str__(self):
