@@ -16,6 +16,17 @@ urlpatterns = [
     path("lunchmenu/view/", views.lunchmenu_view, name="lunchmenu-list"),
     path("lunchmenu/create/", views.lunchmenu_view, name="lunchmenu-list"),
     #path("lunchmenu/update/<int:pk>/", views.lunch_menu.lunchmenu_update, name="lunchmenu-detail"),
+
+    path("leave/view/request/", views.leave_request_view, name="leave-request-view"),
+    path("leave/update/<int:pk>/", views.update_leave_status, name="update-leave-status"),
+
+    path("message/view/", views.message_view, name="message-view"),
+    path("message/write/", views.message_view, name="update-leave-status"),
+
+
+
+
+
 ]
 '''
 app_name = "Teacher"
