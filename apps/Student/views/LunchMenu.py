@@ -6,23 +6,13 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework import status
 
+
 @api_view(['GET'])
-#@permission_classes([IsAuthenticated])
+@permission_classes([IsAuthenticated])
 def lunchmenu_view(request):
- 
-    lunchmenu = LunchMenu.objects.all()
-    # Serializer the fetched menu data
-    serializer = LunchMenuSerializer(lunchmenu, many=True)
-    return Response(serializer.data)
-
-
-
-# @api_view(['GET'])
-# @permission_classes([IsAuthenticated])
-# def lunchmenu_view(request):
-#     if request.user.is_authenticated:
-#         lunchmenu = LunchMenu.objects.all()
-#         # Serializer the fetched menu data
-#         serializer = LunchMenuSerializer(lunchmenu, many=True)
-#         return Response(serializer.data)
-#     return Response({'detail': 'Not authenticated'}, status=401)
+    if request.user.is_authenticated:
+        lunchmenu = LunchMenu.objects.all()
+        # Serializer the fetched menu data
+        serializer = LunchMenuSerializer(lunchmenu, many=True)
+        return Response(serializer.data)
+    return Response({'detail': 'Not authenticated'}, status=401)
