@@ -32,27 +32,10 @@ class TeacherAdmin(admin.ModelAdmin):
     last_name.admin_order_field = "user__last_name"
 
 
-"""       
-class TimeTableAdmin(admin.ModelAdmin):
-    list_display = (
-        "id",
-        "class", 
-        "teacher",  
-        "timetable_content",
-    )
 
-
-class LunchMenuAdmin(admin.ModelAdmin):
-    list_display = (
-        "id",
-        "week", 
-        "timetable",  
-        "lunch_menu", 
-    )
-    """
 
 # Register your models with the admin
 admin.site.register(Teacher, TeacherAdmin)
 admin.site.register(Class, ClassAdmin)
-admin.site.register(TimeTable)  # , TimeTableAdmin)
-admin.site.register(LunchMenu)  # , LunchMenuAdmin)
+admin.site.register(TimeTable) 
+admin.site.register(LunchMenu) 

@@ -11,4 +11,7 @@ urlpatterns = [
         path('edit/profile/',views.edit_profile, name='edit_view'),
         path('apply/leave/',views.parent_leave_list_create, name='apply_leave'),
         path('write/message/', views.write_message, name='write-message'),
+        path('view/timetable/', views.timetable_view, name='view-timetable'),
+        path('view/lunchmenu/', views.lunchmenu_view, name='view-lunch-menu')
+
     ]

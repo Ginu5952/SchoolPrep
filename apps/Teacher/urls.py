@@ -1,6 +1,6 @@
 from django.urls import path
 #from apps.Teacher.views.timetable import timetable_view, timetable_update
-#from apps.Teacher.views.lunch_menu import lunchmenu_list, lunchmenu_update
+#from apps.Teacher.views.lunch_menu import lunchmenu_view, lunchmenu_update
 from . import views
 
 app_name = "Teacher"
@@ -9,10 +9,12 @@ urlpatterns = [
     path("<int:pk>/", views.teacher_detail, name="teacher-detail"),
     path("classes/<int:pk>/", views.class_detail, name="class-detail"),
     
-    path("timetable/view/", views.timetable_view, name="timetable-detail"),
-    path("timetable/create/", views.timetable_view, name="timetable-detail"),
-   # path("timetable/update/<int:pk>/", views.timetable.timetable_update, name="timetable-update"),
-   # path("lunchmenu/view/", views.lunch_menu.lunchmenu_list, name="lunchmenu-list"),
+    path("timetable/view/", views.timetable_view, name="view-timetable"),
+    path("timetable/create/", views.timetable_view, name="create-timetable"),
+    path("timetable/update/<int:pk>/", views.timetable.timetable_update, name="timetable-update"),
+
+    path("lunchmenu/view/", views.lunchmenu_view, name="lunchmenu-list"),
+    path("lunchmenu/create/", views.lunchmenu_view, name="lunchmenu-list"),
     #path("lunchmenu/update/<int:pk>/", views.lunch_menu.lunchmenu_update, name="lunchmenu-detail"),
 ]
 '''

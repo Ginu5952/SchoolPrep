@@ -15,6 +15,7 @@ class TeacherSerializer(serializers.ModelSerializer):
     class Meta:
         model = Teacher
         fields = ["id", "user", "gender",]
+        
 
     def create(self, validated_data):
         user_data = validated_data.pop('user')  

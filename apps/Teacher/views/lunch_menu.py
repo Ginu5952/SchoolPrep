@@ -6,7 +6,7 @@ from apps.Teacher.serializer.lunch_menu import LunchMenuSerializer
 
 
 @api_view(["GET", "POST"])
-def lunchmenu_list(request):
+def lunchmenu_view(request):
     if request.method == "GET":
         lunchmenus = LunchMenu.objects.all()
         serializer = LunchMenuSerializer(lunchmenus, many=True)
