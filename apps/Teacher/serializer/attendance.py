@@ -26,3 +26,5 @@ class AttendanceSerializer(serializers.ModelSerializer):
     def get_class_name(self, obj):
         
         return obj.student.class_id.class_name
+
+  
