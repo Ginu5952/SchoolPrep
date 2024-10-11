@@ -2,6 +2,8 @@ from django.contrib import admin
 from apps.Teacher.models.teacher import Teacher, Class
 from apps.Teacher.models.lunch_menu import LunchMenu
 from apps.Teacher.models.timetable import TimeTable
+#from apps.Teacher.models.attendance import Attendance
+
 
 
 class ClassAdmin(admin.ModelAdmin):
@@ -39,3 +41,5 @@ admin.site.register(Teacher, TeacherAdmin)
 admin.site.register(Class, ClassAdmin)
 admin.site.register(TimeTable) 
 admin.site.register(LunchMenu) 
+#admin.site.register(Attendance)
+
