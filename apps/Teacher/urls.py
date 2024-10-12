@@ -21,6 +21,11 @@ urlpatterns = [
     path("message/view/", views.message_view, name="message-view"),
     path("message/write/", views.message_view, name="update-leave-status"),
 
+    path("attendance/view/", views.attendance_view, name="attendance-view"),
+    path("message/write/", views.mark_attendance, name="update-leave-status"),
+
+
+
 
 
 

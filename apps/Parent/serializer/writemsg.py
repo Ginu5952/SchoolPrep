@@ -10,7 +10,6 @@ class WriteMsgSerializer(serializers.ModelSerializer):
     parent_id = serializers.PrimaryKeyRelatedField(queryset=Parent.objects.all(), source='parent')
     student_id = serializers.PrimaryKeyRelatedField(queryset=Student.objects.all(), source='student')
     teacher_id = serializers.PrimaryKeyRelatedField(queryset=Teacher.objects.all(), source='teacher')
-
     parent_name = serializers.SerializerMethodField()
     student_name = serializers.SerializerMethodField()
     teacher_name = serializers.SerializerMethodField()

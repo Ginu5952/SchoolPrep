@@ -1,7 +1,7 @@
 from django.db import models
 from apps.Parent.models.parent import Parent  
-from apps.Student.models.student import Student 
 from apps.Teacher.models.teacher import Teacher
+from apps.Student.models.student import Student 
 
 class Leave(models.Model):
     
