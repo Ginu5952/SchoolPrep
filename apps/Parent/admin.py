@@ -67,7 +67,7 @@ class LeaveAdmin(admin.ModelAdmin):
     get_teacher_name.short_description = 'Teacher'
 
 class WritemsgAdmin(admin.ModelAdmin):
-    list_display = ('parent', 'student', 'text_msg', 'response')
+    list_display = ('id','parent', 'student', 'text_msg', 'response')
   
 admin.site.register(Parent,ParentAdmin)
 admin.site.register(Leave,LeaveAdmin)
