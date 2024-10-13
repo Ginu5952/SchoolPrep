@@ -12,10 +12,11 @@ class WriteMsgSerializer(serializers.ModelSerializer):
     parent_name = serializers.SerializerMethodField()
     student_name = serializers.SerializerMethodField()
     teacher_name = serializers.SerializerMethodField()
+    class_name = serializers.SerializerMethodField()
     
     class Meta:
         model = WriteMsg  
-        fields = ['id', 'parent_id', 'parent_name', 'student_id', 'student_name', 'teacher_name', 'text_msg','response']
+        fields = ['id', 'parent_id', 'parent_name', 'student_id', 'student_name', 'teacher_name', 'class_name','text_msg','response']
         
     def get_parent_name(self, obj):
         return f"{obj.parent.user.first_name} {obj.parent.user.last_name}"
@@ -25,6 +26,9 @@ class WriteMsgSerializer(serializers.ModelSerializer):
 
     def get_student_name(self, obj):
         return f"{obj.student.first_name} {obj.student.last_name}"
+    
+    def get_class_name(self,obj):
+        return obj.student.class_id.class_name
         
 
     def validate_text_msg(self, value):
