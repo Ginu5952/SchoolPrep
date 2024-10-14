@@ -66,11 +66,13 @@ class AttendanceAdmin(admin.ModelAdmin):
         return class_instance.class_name if class_instance else "No class assigned"
     
     
-
+class AnnouncementAdmin(admin.ModelAdmin):
+    list_display = ("id", "date", "announcement")
+  
 # Register your models with the admin
 admin.site.register(Teacher, TeacherAdmin)
 admin.site.register(Class, ClassAdmin)
 admin.site.register(TimeTable)
 admin.site.register(LunchMenu)
 admin.site.register(Attendance, AttendanceAdmin)
-admin.site.register(Announcement)
+admin.site.register(Announcement,AnnouncementAdmin)
