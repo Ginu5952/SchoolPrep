@@ -17,7 +17,7 @@ class Leave(models.Model):
         ('REJECTED', 'Rejected'),
     ]
 
-    parent = models.ForeignKey(Parent, on_delete=models.CASCADE)
+    parent = models.ForeignKey(Parent, on_delete=models.CASCADE,blank=True)
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
     teacher = models.ForeignKey(Teacher,on_delete=models.CASCADE)
     leave_type = models.CharField(max_length=20, choices=LEAVE_TYPE_CHOICES)
