@@ -16,7 +16,7 @@ def announcement_view(request):
 @api_view(["POST"])
 @permission_classes([IsAuthenticated])  
 def announcement_create(request):
-  
+    # Check if the user is an admin
     if request.user:
         serializer = AnnouncementSerializer(
             data=request.data, context={"request": request}
