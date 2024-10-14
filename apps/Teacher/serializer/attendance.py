@@ -9,7 +9,7 @@ class AttendanceSerializer(serializers.ModelSerializer):
     student_id = serializers.SerializerMethodField()
     
     class Meta:
-        #model = Attendance
+        model = Attendance
         fields = ['id','student_id','student_name', 'teacher_name', 'class_name', 'date', 'is_present']
         
         
