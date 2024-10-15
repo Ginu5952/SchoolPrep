@@ -13,13 +13,11 @@ urlpatterns = [
     path("lunchmenu/create/", views.lunchmenu_view, name="create-lunchmenu"),
     path("lunchmenu/update/<int:pk>/", views.lunchmenu_update, name="update-lunchmenu"),
     path("leave/view/request/", views.leave_request_view, name="leave-request-view"),
-    path(
-        "leave/update/<int:pk>/", views.update_leave_status, name="update-leave-status"
-    ),
+    path("leave/update/<int:pk>/", views.update_leave_status, name="update-leave-status"),
     path("message/view/", views.message_view, name="message-view"),
     path("message/write/", views.message_view, name="update-message-response"),
     path("attendance/view/", views.attendance_view, name="attendance-view"),
-    path("attendance/mark/<int:pk>", views.mark_attendance, name="mark-attendance"),
+    path("attendance/mark/<int:pk>/", views.mark_attendance, name="mark-attendance"),
     path("announcement/view/", views.announcement_view, name="announcement-view"),
     path("announcement/create/", views.announcement_create, name="announcement-create"),
 ]
