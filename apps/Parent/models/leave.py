@@ -19,7 +19,7 @@ class Leave(models.Model):
 
     parent = models.ForeignKey(Parent, on_delete=models.CASCADE,blank=True)
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
-    teacher = models.ForeignKey(Teacher,on_delete=models.CASCADE)
+    #teacher = models.ForeignKey(Teacher,on_delete=models.CASCADE)
     leave_type = models.CharField(max_length=20, choices=LEAVE_TYPE_CHOICES)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='PENDING')
     leave_description = models.TextField()

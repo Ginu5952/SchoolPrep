@@ -26,12 +26,10 @@ class LeaveSerializer(serializers.ModelSerializer):
         return obj.student.class_id.class_name
     
     def get_teacher_name(self, obj):
-      
         teacher = obj.student.class_id.teacher_id
         return teacher.user.first_name + " " + teacher.user.last_name
 
-        
-
+    
     def get_student_name(self, obj):
         return obj.student.first_name + " " + obj.student.last_name  
     
